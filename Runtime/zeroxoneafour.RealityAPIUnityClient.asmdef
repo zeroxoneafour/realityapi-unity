@@ -1,0 +1,18 @@
+{
+    "name": "zeroxoneafour.RealityAPIUnityClient",
+    "rootNamespace": "",
+    "references": [
+        "GUID:cd0da57754a90f0e1a0430815739a7cc"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Google.Protobuf.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
