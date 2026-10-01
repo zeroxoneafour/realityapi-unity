@@ -32,6 +32,8 @@ namespace zeroxoneafour.RealityAPIUnityClient
             return Packet.Parser.ParseFrom(res);
         }
 
+        // obsoleted i suppose?
+        /*
         public async Task<Packet> SayHello(string name)
         {
             var hello = new Hello
@@ -49,6 +51,7 @@ namespace zeroxoneafour.RealityAPIUnityClient
             };
             return await SendAndReceive(textMsg);
         }
+        
 
         public async Task<Packet> SendPosition(UnityEngine.Vector3 pos)
         {
@@ -59,6 +62,12 @@ namespace zeroxoneafour.RealityAPIUnityClient
                 Z = pos.z
             };
             return await SendAndReceive(position);
+        }
+        */
+
+        public async Task<Packet> SendPacket(Packet packet)
+        {
+            return await SendAndReceive(packet);
         }
     }
 }

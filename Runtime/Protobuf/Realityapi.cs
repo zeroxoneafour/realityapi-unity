@@ -26,23 +26,35 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
           string.Concat(
             "ChByZWFsaXR5YXBpLnByb3RvEgpyZWFsaXR5YXBpIioKB1ZlY3RvcjMSCQoB",
             "eBgBIAEoAhIJCgF5GAIgASgCEgkKAXoYAyABKAIiFQoFSGVsbG8SDAoEbmFt",
-            "ZRgBIAEoCSIUCgRUZXh0EgwKBHRleHQYASABKAkifwoGUGFja2V0EiIKBWhl",
-            "bGxvGAEgASgLMhEucmVhbGl0eWFwaS5IZWxsb0gAEiAKBHRleHQYAiABKAsy",
-            "EC5yZWFsaXR5YXBpLlRleHRIABInCghwb3NpdGlvbhgDIAEoCzITLnJlYWxp",
-            "dHlhcGkuVmVjdG9yM0gAQgYKBGJvZHlCL6oCLHplcm94b25lYWZvdXIuUmVh",
-            "bGl0eUFQSVVuaXR5Q2xpZW50LlByb3RvYnVmYgZwcm90bzM="));
+            "ZRgBIAEoCSIUCgRUZXh0EgwKBHRleHQYASABKAkiZwoGUGFja2V0EiUKCHBv",
+            "c2l0aW9uGAMgASgLMhMucmVhbGl0eWFwaS5WZWN0b3IzEioKCmRldmljZXR5",
+            "cGUYBCABKA4yFi5yZWFsaXR5YXBpLkRldmljZVR5cGUSCgoCaWQYBSABKAkq",
+            "OgoKRGV2aWNlVHlwZRIGCgJWUhAAEgYKAkFSEAESBwoDRE9HEAISBwoDQVJN",
+            "EAMSCgoGVFVSVExFEARCL6oCLHplcm94b25lYWZvdXIuUmVhbGl0eUFQSVVu",
+            "aXR5Q2xpZW50LlByb3RvYnVmYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::zeroxoneafour.RealityAPIUnityClient.Protobuf.DeviceType), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Vector3), global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Vector3.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Hello), global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Hello.Parser, new[]{ "Name" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Text), global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Text.Parser, new[]{ "Text_" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Packet), global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Packet.Parser, new[]{ "Hello", "Text", "Position" }, new[]{ "Body" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Packet), global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Packet.Parser, new[]{ "Position", "Devicetype", "Id" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
+  #region Enums
+  public enum DeviceType {
+    [pbr::OriginalName("VR")] Vr = 0,
+    [pbr::OriginalName("AR")] Ar = 1,
+    [pbr::OriginalName("DOG")] Dog = 2,
+    [pbr::OriginalName("ARM")] Arm = 3,
+    [pbr::OriginalName("TURTLE")] Turtle = 4,
+  }
+
+  #endregion
+
   #region Messages
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Vector3 : pb::IMessage<Vector3>
@@ -747,18 +759,9 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public Packet(Packet other) : this() {
-      switch (other.BodyCase) {
-        case BodyOneofCase.Hello:
-          Hello = other.Hello.Clone();
-          break;
-        case BodyOneofCase.Text:
-          Text = other.Text.Clone();
-          break;
-        case BodyOneofCase.Position:
-          Position = other.Position.Clone();
-          break;
-      }
-
+      position_ = other.position_ != null ? other.position_.Clone() : null;
+      devicetype_ = other.devicetype_;
+      id_ = other.id_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -768,62 +771,40 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
       return new Packet(this);
     }
 
-    /// <summary>Field number for the "hello" field.</summary>
-    public const int HelloFieldNumber = 1;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Hello Hello {
-      get { return bodyCase_ == BodyOneofCase.Hello ? (global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Hello) body_ : null; }
-      set {
-        body_ = value;
-        bodyCase_ = value == null ? BodyOneofCase.None : BodyOneofCase.Hello;
-      }
-    }
-
-    /// <summary>Field number for the "text" field.</summary>
-    public const int TextFieldNumber = 2;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Text Text {
-      get { return bodyCase_ == BodyOneofCase.Text ? (global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Text) body_ : null; }
-      set {
-        body_ = value;
-        bodyCase_ = value == null ? BodyOneofCase.None : BodyOneofCase.Text;
-      }
-    }
-
     /// <summary>Field number for the "position" field.</summary>
     public const int PositionFieldNumber = 3;
+    private global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Vector3 position_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Vector3 Position {
-      get { return bodyCase_ == BodyOneofCase.Position ? (global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Vector3) body_ : null; }
+      get { return position_; }
       set {
-        body_ = value;
-        bodyCase_ = value == null ? BodyOneofCase.None : BodyOneofCase.Position;
+        position_ = value;
       }
     }
 
-    private object body_;
-    /// <summary>Enum of possible cases for the "body" oneof.</summary>
-    public enum BodyOneofCase {
-      None = 0,
-      Hello = 1,
-      Text = 2,
-      Position = 3,
-    }
-    private BodyOneofCase bodyCase_ = BodyOneofCase.None;
+    /// <summary>Field number for the "devicetype" field.</summary>
+    public const int DevicetypeFieldNumber = 4;
+    private global::zeroxoneafour.RealityAPIUnityClient.Protobuf.DeviceType devicetype_ = global::zeroxoneafour.RealityAPIUnityClient.Protobuf.DeviceType.Vr;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public BodyOneofCase BodyCase {
-      get { return bodyCase_; }
+    public global::zeroxoneafour.RealityAPIUnityClient.Protobuf.DeviceType Devicetype {
+      get { return devicetype_; }
+      set {
+        devicetype_ = value;
+      }
     }
 
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 5;
+    private string id_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearBody() {
-      bodyCase_ = BodyOneofCase.None;
-      body_ = null;
+    public string Id {
+      get { return id_; }
+      set {
+        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -841,10 +822,9 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(Hello, other.Hello)) return false;
-      if (!object.Equals(Text, other.Text)) return false;
       if (!object.Equals(Position, other.Position)) return false;
-      if (BodyCase != other.BodyCase) return false;
+      if (Devicetype != other.Devicetype) return false;
+      if (Id != other.Id) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -852,10 +832,9 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (bodyCase_ == BodyOneofCase.Hello) hash ^= Hello.GetHashCode();
-      if (bodyCase_ == BodyOneofCase.Text) hash ^= Text.GetHashCode();
-      if (bodyCase_ == BodyOneofCase.Position) hash ^= Position.GetHashCode();
-      hash ^= (int) bodyCase_;
+      if (position_ != null) hash ^= Position.GetHashCode();
+      if (Devicetype != global::zeroxoneafour.RealityAPIUnityClient.Protobuf.DeviceType.Vr) hash ^= Devicetype.GetHashCode();
+      if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -874,17 +853,17 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (bodyCase_ == BodyOneofCase.Hello) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Hello);
-      }
-      if (bodyCase_ == BodyOneofCase.Text) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Text);
-      }
-      if (bodyCase_ == BodyOneofCase.Position) {
+      if (position_ != null) {
         output.WriteRawTag(26);
         output.WriteMessage(Position);
+      }
+      if (Devicetype != global::zeroxoneafour.RealityAPIUnityClient.Protobuf.DeviceType.Vr) {
+        output.WriteRawTag(32);
+        output.WriteEnum((int) Devicetype);
+      }
+      if (Id.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Id);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -896,17 +875,17 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (bodyCase_ == BodyOneofCase.Hello) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Hello);
-      }
-      if (bodyCase_ == BodyOneofCase.Text) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Text);
-      }
-      if (bodyCase_ == BodyOneofCase.Position) {
+      if (position_ != null) {
         output.WriteRawTag(26);
         output.WriteMessage(Position);
+      }
+      if (Devicetype != global::zeroxoneafour.RealityAPIUnityClient.Protobuf.DeviceType.Vr) {
+        output.WriteRawTag(32);
+        output.WriteEnum((int) Devicetype);
+      }
+      if (Id.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Id);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -918,14 +897,14 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (bodyCase_ == BodyOneofCase.Hello) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Hello);
-      }
-      if (bodyCase_ == BodyOneofCase.Text) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Text);
-      }
-      if (bodyCase_ == BodyOneofCase.Position) {
+      if (position_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Position);
+      }
+      if (Devicetype != global::zeroxoneafour.RealityAPIUnityClient.Protobuf.DeviceType.Vr) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Devicetype);
+      }
+      if (Id.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -939,27 +918,18 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
       if (other == null) {
         return;
       }
-      switch (other.BodyCase) {
-        case BodyOneofCase.Hello:
-          if (Hello == null) {
-            Hello = new global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Hello();
-          }
-          Hello.MergeFrom(other.Hello);
-          break;
-        case BodyOneofCase.Text:
-          if (Text == null) {
-            Text = new global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Text();
-          }
-          Text.MergeFrom(other.Text);
-          break;
-        case BodyOneofCase.Position:
-          if (Position == null) {
-            Position = new global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Vector3();
-          }
-          Position.MergeFrom(other.Position);
-          break;
+      if (other.position_ != null) {
+        if (position_ == null) {
+          Position = new global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Vector3();
+        }
+        Position.MergeFrom(other.Position);
       }
-
+      if (other.Devicetype != global::zeroxoneafour.RealityAPIUnityClient.Protobuf.DeviceType.Vr) {
+        Devicetype = other.Devicetype;
+      }
+      if (other.Id.Length != 0) {
+        Id = other.Id;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -979,31 +949,19 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Hello subBuilder = new global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Hello();
-            if (bodyCase_ == BodyOneofCase.Hello) {
-              subBuilder.MergeFrom(Hello);
-            }
-            input.ReadMessage(subBuilder);
-            Hello = subBuilder;
-            break;
-          }
-          case 18: {
-            global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Text subBuilder = new global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Text();
-            if (bodyCase_ == BodyOneofCase.Text) {
-              subBuilder.MergeFrom(Text);
-            }
-            input.ReadMessage(subBuilder);
-            Text = subBuilder;
-            break;
-          }
           case 26: {
-            global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Vector3 subBuilder = new global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Vector3();
-            if (bodyCase_ == BodyOneofCase.Position) {
-              subBuilder.MergeFrom(Position);
+            if (position_ == null) {
+              Position = new global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Vector3();
             }
-            input.ReadMessage(subBuilder);
-            Position = subBuilder;
+            input.ReadMessage(Position);
+            break;
+          }
+          case 32: {
+            Devicetype = (global::zeroxoneafour.RealityAPIUnityClient.Protobuf.DeviceType) input.ReadEnum();
+            break;
+          }
+          case 42: {
+            Id = input.ReadString();
             break;
           }
         }
@@ -1025,31 +983,19 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Hello subBuilder = new global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Hello();
-            if (bodyCase_ == BodyOneofCase.Hello) {
-              subBuilder.MergeFrom(Hello);
-            }
-            input.ReadMessage(subBuilder);
-            Hello = subBuilder;
-            break;
-          }
-          case 18: {
-            global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Text subBuilder = new global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Text();
-            if (bodyCase_ == BodyOneofCase.Text) {
-              subBuilder.MergeFrom(Text);
-            }
-            input.ReadMessage(subBuilder);
-            Text = subBuilder;
-            break;
-          }
           case 26: {
-            global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Vector3 subBuilder = new global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Vector3();
-            if (bodyCase_ == BodyOneofCase.Position) {
-              subBuilder.MergeFrom(Position);
+            if (position_ == null) {
+              Position = new global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Vector3();
             }
-            input.ReadMessage(subBuilder);
-            Position = subBuilder;
+            input.ReadMessage(Position);
+            break;
+          }
+          case 32: {
+            Devicetype = (global::zeroxoneafour.RealityAPIUnityClient.Protobuf.DeviceType) input.ReadEnum();
+            break;
+          }
+          case 42: {
+            Id = input.ReadString();
             break;
           }
         }
