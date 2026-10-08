@@ -1,0 +1,21 @@
+{
+    "name": "zeroxoneafour.RealityAPIUnityClient.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8b314616cc90999fd8448462be809fe6",
+        "UnityEngine.TestRunner"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

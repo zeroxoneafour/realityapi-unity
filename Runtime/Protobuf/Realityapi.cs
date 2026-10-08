@@ -26,19 +26,22 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
           string.Concat(
             "ChByZWFsaXR5YXBpLnByb3RvEgpyZWFsaXR5YXBpIioKB1ZlY3RvcjMSCQoB",
             "eBgBIAEoAhIJCgF5GAIgASgCEgkKAXoYAyABKAIiFQoFSGVsbG8SDAoEbmFt",
-            "ZRgBIAEoCSIUCgRUZXh0EgwKBHRleHQYASABKAkiZwoGUGFja2V0EiUKCHBv",
-            "c2l0aW9uGAMgASgLMhMucmVhbGl0eWFwaS5WZWN0b3IzEioKCmRldmljZXR5",
-            "cGUYBCABKA4yFi5yZWFsaXR5YXBpLkRldmljZVR5cGUSCgoCaWQYBSABKAkq",
-            "OgoKRGV2aWNlVHlwZRIGCgJWUhAAEgYKAkFSEAESBwoDRE9HEAISBwoDQVJN",
-            "EAMSCgoGVFVSVExFEARCL6oCLHplcm94b25lYWZvdXIuUmVhbGl0eUFQSVVu",
-            "aXR5Q2xpZW50LlByb3RvYnVmYgZwcm90bzM="));
+            "ZRgBIAEoCSIUCgRUZXh0EgwKBHRleHQYASABKAkiIQoJSGVhcnRiZWF0EhQK",
+            "DGN1cnJlbnRfdGltZRgBIAEoASKRAQoGUGFja2V0EiUKCHBvc2l0aW9uGAMg",
+            "ASgLMhMucmVhbGl0eWFwaS5WZWN0b3IzEioKCmRldmljZXR5cGUYBCABKA4y",
+            "Fi5yZWFsaXR5YXBpLkRldmljZVR5cGUSCgoCaWQYBSABKAkSKAoJaGVhcnRi",
+            "ZWF0GAYgASgLMhUucmVhbGl0eWFwaS5IZWFydGJlYXQqOgoKRGV2aWNlVHlw",
+            "ZRIGCgJWUhAAEgYKAkFSEAESBwoDRE9HEAISBwoDQVJNEAMSCgoGVFVSVExF",
+            "EARCL6oCLHplcm94b25lYWZvdXIuUmVhbGl0eUFQSVVuaXR5Q2xpZW50LlBy",
+            "b3RvYnVmYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::zeroxoneafour.RealityAPIUnityClient.Protobuf.DeviceType), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Vector3), global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Vector3.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Hello), global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Hello.Parser, new[]{ "Name" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Text), global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Text.Parser, new[]{ "Text_" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Packet), global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Packet.Parser, new[]{ "Position", "Devicetype", "Id" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Heartbeat), global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Heartbeat.Parser, new[]{ "CurrentTime" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Packet), global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Packet.Parser, new[]{ "Position", "Devicetype", "Id", "Heartbeat" }, null, null, null, null)
           }));
     }
     #endregion
@@ -724,6 +727,208 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
 
   }
 
+  /// <summary>
+  /// Keepalive sent by a device so the server can tell when it goes away.
+  /// The device is identified by the Packet's own id and devicetype fields.
+  /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class Heartbeat : pb::IMessage<Heartbeat>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<Heartbeat> _parser = new pb::MessageParser<Heartbeat>(() => new Heartbeat());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<Heartbeat> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::zeroxoneafour.RealityAPIUnityClient.Protobuf.RealityapiReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public Heartbeat() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public Heartbeat(Heartbeat other) : this() {
+      currentTime_ = other.currentTime_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public Heartbeat Clone() {
+      return new Heartbeat(this);
+    }
+
+    /// <summary>Field number for the "current_time" field.</summary>
+    public const int CurrentTimeFieldNumber = 1;
+    private double currentTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double CurrentTime {
+      get { return currentTime_; }
+      set {
+        currentTime_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as Heartbeat);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(Heartbeat other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(CurrentTime, other.CurrentTime)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (CurrentTime != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(CurrentTime);
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (CurrentTime != 0D) {
+        output.WriteRawTag(9);
+        output.WriteDouble(CurrentTime);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (CurrentTime != 0D) {
+        output.WriteRawTag(9);
+        output.WriteDouble(CurrentTime);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (CurrentTime != 0D) {
+        size += 1 + 8;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(Heartbeat other) {
+      if (other == null) {
+        return;
+      }
+      if (other.CurrentTime != 0D) {
+        CurrentTime = other.CurrentTime;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 9: {
+            CurrentTime = input.ReadDouble();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 9: {
+            CurrentTime = input.ReadDouble();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Packet : pb::IMessage<Packet>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -739,7 +944,7 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::zeroxoneafour.RealityAPIUnityClient.Protobuf.RealityapiReflection.Descriptor.MessageTypes[3]; }
+      get { return global::zeroxoneafour.RealityAPIUnityClient.Protobuf.RealityapiReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -762,6 +967,7 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
       position_ = other.position_ != null ? other.position_.Clone() : null;
       devicetype_ = other.devicetype_;
       id_ = other.id_;
+      heartbeat_ = other.heartbeat_ != null ? other.heartbeat_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -807,6 +1013,18 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "heartbeat" field.</summary>
+    public const int HeartbeatFieldNumber = 6;
+    private global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Heartbeat heartbeat_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Heartbeat Heartbeat {
+      get { return heartbeat_; }
+      set {
+        heartbeat_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -825,6 +1043,7 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
       if (!object.Equals(Position, other.Position)) return false;
       if (Devicetype != other.Devicetype) return false;
       if (Id != other.Id) return false;
+      if (!object.Equals(Heartbeat, other.Heartbeat)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -835,6 +1054,7 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
       if (position_ != null) hash ^= Position.GetHashCode();
       if (Devicetype != global::zeroxoneafour.RealityAPIUnityClient.Protobuf.DeviceType.Vr) hash ^= Devicetype.GetHashCode();
       if (Id.Length != 0) hash ^= Id.GetHashCode();
+      if (heartbeat_ != null) hash ^= Heartbeat.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -865,6 +1085,10 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
         output.WriteRawTag(42);
         output.WriteString(Id);
       }
+      if (heartbeat_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Heartbeat);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -887,6 +1111,10 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
         output.WriteRawTag(42);
         output.WriteString(Id);
       }
+      if (heartbeat_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Heartbeat);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -905,6 +1133,9 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
       }
       if (Id.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+      }
+      if (heartbeat_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Heartbeat);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -929,6 +1160,12 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
       }
       if (other.Id.Length != 0) {
         Id = other.Id;
+      }
+      if (other.heartbeat_ != null) {
+        if (heartbeat_ == null) {
+          Heartbeat = new global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Heartbeat();
+        }
+        Heartbeat.MergeFrom(other.Heartbeat);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -964,6 +1201,13 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
             Id = input.ReadString();
             break;
           }
+          case 50: {
+            if (heartbeat_ == null) {
+              Heartbeat = new global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Heartbeat();
+            }
+            input.ReadMessage(Heartbeat);
+            break;
+          }
         }
       }
     #endif
@@ -996,6 +1240,13 @@ namespace zeroxoneafour.RealityAPIUnityClient.Protobuf {
           }
           case 42: {
             Id = input.ReadString();
+            break;
+          }
+          case 50: {
+            if (heartbeat_ == null) {
+              Heartbeat = new global::zeroxoneafour.RealityAPIUnityClient.Protobuf.Heartbeat();
+            }
+            input.ReadMessage(Heartbeat);
             break;
           }
         }
